@@ -92,6 +92,40 @@ Inside map, it creates:
 It means `kValue` is a clone of `product` and in code 1, we set `kValue = product` with a value is primitive value in code 2 product is an object and non-premitive value
 can see more in here [Explaining Value vs. Reference in Javascript](https://codeburst.io/explaining-value-vs-reference-in-javascript-647a975e12a0)
 
+We use [Spread syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#Spread_in_object_literals)
+
+```JAVASCRIPT
+let products = [
+  {
+    id: 1,
+    votes: 10,
+  },
+  {
+    id: 2,
+    votes: 15,
+  },
+  {
+    id: 3,
+    votes: 20,
+  }
+];
+
+
+const newproducts = products.map((product) => {
+  if (product.id === 2) {
+    return {
+      ...product,
+      votes: product.votes + 1
+    }
+  } else return product;
+});
+
+console.log(newproducts);
+console.log(products);
+
+console.log(products === newproducts);
+
+```
 
 
 
